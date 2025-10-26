@@ -1,0 +1,14 @@
+{% extends 'app_proyectos/base.html' %}
+{% block content %}
+<h2>Detalles del Proyecto</h2>
+<table class="table table-bordered">
+    <tr><th>ID</th><td>{{ proyecto.id_proyecto }}</td></tr>
+    <tr><th>Nombre</th><td>{{ proyecto.nombre }}</td></tr>
+    <tr><th>Descripción</th><td>{{ proyecto.descripcion }}</td></tr>
+    <tr><th>Fecha Inicio</th><td>{{ proyecto.fecha_inicio }}</td></tr>
+    <tr><th>Fecha Entrega</th><td>{{ proyecto.fecha_entrega }}</td></tr>
+    <tr><th>ID Empleado</th><td>{{ proyecto.id_empleado }}</td></tr>
+    <tr><th>ID Campaña</th><td>{{ proyecto.id_campaña }}</td></tr>
+</table>
+<a href="{% url 'lista_proyectos' %}" class="btn btn-secondary">Regresar</a>
+{% endblock %}

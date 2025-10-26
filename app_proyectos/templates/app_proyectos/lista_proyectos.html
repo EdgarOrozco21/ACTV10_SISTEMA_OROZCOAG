@@ -1,0 +1,35 @@
+{% extends 'app_proyectos/base.html' %}
+{% block content %}
+<a href="{% url 'crear_proyecto' %}" class="btn btn-primary mb-3">Nuevo Proyecto</a>
+
+<table class="table table-striped table-hover align-middle">
+    <thead class="table-primary">
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Inicio</th>
+            <th>Entrega</th>
+            <th>Empleado ID</th>
+            <th>Campaña ID</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for proyecto in proyectos %}
+        <tr>
+            <td>{{ proyecto.id_proyecto }}</td>
+            <td>{{ proyecto.nombre }}</td>
+            <td>{{ proyecto.fecha_inicio }}</td>
+            <td>{{ proyecto.fecha_entrega }}</td>
+            <td>{{ proyecto.id_empleado }}</td>
+            <td>{{ proyecto.id_campaña }}</td>
+            <td>
+                <a href="{% url 'ver_proyecto' proyecto.id_proyecto %}" class="btn btn-info btn-sm">Ver</a>
+                <a href="{% url 'editar_proyecto' proyecto.id_proyecto %}" class="btn btn-warning btn-sm">Editar</a>
+                <a href="{% url 'eliminar_proyecto' proyecto.id_proyecto %}" class="btn btn-danger btn-sm">Eliminar</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
